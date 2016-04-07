@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title Workspace
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    #navbar-display.navbar-inverse
+      .navbar-header
+        %a.navbar-brand{:href => "#"} ColorWorld
+      .navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+            %a{:href => "#"} Gallery
+          %li
+            %a{:href => "#"} Feed
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %a{:href => "#"} Sign in
+          %li
+            %a{:href => "#"} Register
+        %form.navbar-form.navbar-right{:action => "{{url('/searchimage')}}", :method => "GET", :role => "search"}
+          .form-group
+            %input.form-control{:name => "title", :placeholder => "Search", :type => "text"}
+              %input.form-control{:name => "type", :type => "hidden", :value => "0"}
+          %button.btn.btn-default{:type => "submit"} Submit
+    = yield
+    
