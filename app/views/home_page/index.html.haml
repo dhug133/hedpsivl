@@ -39,17 +39,17 @@
           20122067 - Truong Tien Manh
     %div
       %p .
-// :javascript
-//   $(window).scroll(function(){
-//     if($(window).scrollTop() > 740){
-//         $("#navbar-inverse").slideDown("fast");
-//         document.getElementById('navbar-display').style.display = 'block';
+:javascript
+  $(window).scroll(function(){
+    if($(window).scrollTop() > 740){
+        $("#navbar-inverse").slideDown("fast");
+        document.getElementById('navbar-display').style.display = 'block';
 
-//     }
-//   });
-//   $(window).scroll(function(){
-//     if($(window).scrollTop() < 740){
-//         $("#navbar-inverse").slideUp("fast");
-//         document.getElementById('navbar-display').style.display = 'none';
-//     }
-//   });
+    }
+  });
+  $(window).scroll(function(){
+    if($(window).scrollTop() < 740){
+        $("#navbar-inverse").slideUp("fast");
+        document.getElementById('navbar-display').style.display = 'none';
+    }
+  });
