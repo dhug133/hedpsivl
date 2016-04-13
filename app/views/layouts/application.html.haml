@@ -1,0 +1,35 @@
+%html
+  %head
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    #navbar-display.navbar-inverse
+      .navbar-header
+        .navbar-brand= link_to "ColorWorld", root_path,:style => "color:white"
+      .navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+            %a{:href => "#"} Gallery
+          %li
+            %a{:href => "#"} Feed
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li
+              = link_to "Upload", new_post_path
+            %li
+              = link_to "Log out", destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to "Sign in", new_user_session_path
+            %li
+              = link_to "Register", new_user_registration_path
+        
+          
+        %form.navbar-form.navbar-right{:action => "{{url('/searchimage')}}", :method => "GET", :role => "search"}
+          .form-group
+            %input.form-control{:name => "title", :placeholder => "Search", :type => "text", :style => "background-color: #c1c1c1;"}
+              %input.form-control{:name => "type", :type => "hidden", :value => "0"}
+          %button.btn.btn-default{:type => "submit"} Find
+    = yield
+    
