@@ -1,0 +1,36 @@
+%html
+  %head
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    #navbar-display.navbar-inverse{:style => "background-color: rgba(21,21,23,0.95);"}
+      .navbar-header{:style => "margin-left: 50px;"}
+        .navbar-brand= link_to "ColorWorld", root_path,{:style => "color:white"}
+      .navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+            %a{:href => "#"} Gallery
+          %li
+            %a{:href => "#"} Feed
+        %ul.nav.navbar-nav.navbar-right{:style => "margin-right: 50px;"}
+          - if user_signed_in?
+            %li
+              = link_to "Upload", new_post_path
+            %li
+              = link_to "Log out", destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to "Sign in", new_user_session_path
+            %li
+              = link_to "Register", new_user_registration_path
+        
+          
+        %form.navbar-form.navbar-right{:action => "{{url('/searchimage')}}", :method => "GET", :role => "search", :style => "background-color: #c1c1c1; margin: 8px 15px; padding: 0px; border-radius: 2px;"}
+          .form-group
+            %input.form-control{:name => "title", :placeholder => "Photos, people, or groups", :type => "text", :style => "background-color: transparent; border: none; color: #222;"}
+            %input.form-control{:name => "type", :type => "hidden", :value => "0"}
+            %span{:style => "float: left;"}
+              %button.btn.btn-default{:type => "submit", :style => " background: url(images/icon_search.png) no-repeat; border: 0px; width: 20px; height: 25px; padding: 0px; margin: 5px 8px;"}
+    = yield
+    
