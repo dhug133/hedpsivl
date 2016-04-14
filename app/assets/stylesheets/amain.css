@@ -161,3 +161,12 @@
 .main .voteButton{
 	background-color: #d0d2b5;
 }
+.post{
+	height: auto;
+	border: 1px solid #D9D9D9;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.post:hover{
+	background-color: rgba(0,0,0,0.1);
+}

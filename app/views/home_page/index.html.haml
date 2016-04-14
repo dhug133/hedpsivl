@@ -1,4 +1,6 @@
 %title Color World
+:javascript
+  document.getElementById('navbar-display').style.display = 'none';
 .main
   .topstrip
     %header.mainheader
@@ -17,10 +19,14 @@
       %h1 Sharing photos and life style.
       %h2
         Save your best moments of your life as often as you can,one day its gonna be your most precious things.
-        %a{:href => "#"} Log in
-        or 
-        %a{:href => "#"} Join us now
-        to start sharing
+        - if user_signed_in?
+          Let's do it Now.
+        - else
+          = link_to "Sign in", new_user_session_path
+          or 
+          = link_to "Join us now", new_user_registration_path
+          to start sharing
+        
   .aboutUs
     .allAbout
       %section.textcontent
