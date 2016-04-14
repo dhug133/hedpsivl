@@ -1,8 +1,13 @@
-.form-wrapper
-  = simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f|
-    .form-group
-      = f.input :image
-    .form-group.text-center
-      = f.input :caption
-    .form-group.text-center
-      = f.button :submit, class: 'btn-success'
+.row{:style =>"margin-top:10%;"}
+  .col-md-4
+  .col-md-4
+    %h3 Upload Images
+    .control-group
+      = form_for @post, html: { class: 'form-group', multipart: true } do |f|
+        .control.btn.btn-default
+          = f.file_field :image
+        %p Caption:
+        .form-group
+          = f.text_field :caption,class:'form-control input-lg',placeholder:"Caption"
+        .form-group
+          = f.button :submit, class: 'btn btn-success'

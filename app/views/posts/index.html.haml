@@ -1,7 +1,7 @@
 .pagination= will_paginate
-.posts-wrapper.row
+.posts-wrapper.container{:style =>"margin-top: 10%"}
   -@posts.each do |post|
-    .post
+    .post.col-md-4.hung_post
       .post-head
         .name
           = post.user.user_name
