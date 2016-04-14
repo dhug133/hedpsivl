@@ -4,9 +4,15 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+<<<<<<< HEAD
     #navbar-display.navbar-inverse{:style => "background-color: rgba(21,21,23,0.95);"}
       .navbar-header{:style => "margin-left: 50px;"}
         .navbar-brand= link_to "ColorWorld", root_path,{:style => "color:white"}
+=======
+    #navbar-display.navbar-inverse{:style => "top:0;"}
+      .navbar-header
+        .navbar-brand= link_to "ColorWorld", root_path,:style => "color:white"
+>>>>>>> Night0nly-master
       .navbar-collapse
         %ul.nav.navbar-nav
           %li
