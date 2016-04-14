@@ -6,8 +6,8 @@
     %header.mainheader
       %a{:href => "#"}
         =image_tag("cwl2.png",class:"logo")
-      %nav
-        %ul
+      %nav{:style => "width: 250px;"}
+        %ul{:style => "width:300px"}
           %li
             %a{:href => "#"}
               %p Gallery
@@ -16,6 +16,7 @@
             %a{:href => "#"}
               %p Feed
               %p your life .
+          .clearfix
       %h1 Sharing photos and life style.
       %h2
         Save your best moments of your life as often as you can,one day its gonna be your most precious things.
@@ -44,13 +45,12 @@
           %br/
           20122067 - Truong Tien Manh
     %div
-      %p .
+      %p{:style => "margin: 0px;"}.
 :javascript
   $(window).scroll(function(){
     if($(window).scrollTop() > 740){
         $("#navbar-inverse").slideDown("fast");
         document.getElementById('navbar-display').style.display = 'block';
-
     }
   });
   $(window).scroll(function(){
