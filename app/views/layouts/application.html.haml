@@ -10,9 +10,9 @@
       .navbar-collapse
         %ul.nav.navbar-nav
           %li
-            %a{:href => "#"} Gallery
+            = link_to "Gallery", posts_path
           %li
-            %a{:href => "#"} Feed
+            = link_to "Feed", posts_path
         %ul.nav.navbar-nav.navbar-right{:style => "margin-right: 50px;"}
           - if user_signed_in?
             %li

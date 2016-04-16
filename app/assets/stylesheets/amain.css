@@ -177,6 +177,17 @@
 .center-block img{
 	margin-top: 81px;
 }
+
+/* Hung test comment css*/
+.comment {
+    text-align:center;
+}
+.comment-form {
+	width:150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*comment end*/
 .edit-links{
 	margin-top: 30px;
 	margin-bottom: 30px;
