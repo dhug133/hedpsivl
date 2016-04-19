@@ -1,6 +1,13 @@
 source 'https://rubygems.org'
 
-
+gem 'haml'
+gem "paperclip", "~> 5.0.0.beta1"
+gem 'simple_form'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'devise'  
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+# gem 'sass-rails', '>= 3.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
@@ -45,3 +52,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'carrierwave'
