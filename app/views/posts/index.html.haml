@@ -1,13 +1,128 @@
 :javascript
   document.getElementById('navbar-display').style.display = 'block';
-.pagination.pagination-plain= will_paginate
-.posts-wrapper.container{:style =>"margin-top: 10%"}
-  -@posts.each do |post|
-    .post.col-md-4.hung_post
-      .post-head
-        .name
-          = link_to post.user.user_name, profile_path(post.user.user_name)
-      .image.center-block
-        =link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post)
-      %p.caption
-        =post.caption
+.posts-wrapper.container-fluid{}
+  .row
+    %section.td-2-content
+      .container-fluid
+        .row.td-blog-section
+          / Phần sidebar bên trên
+          .td-blog-sidebar
+            .td-blog-right
+              / Phần post
+              .td-blog-post
+                %span.td-catagories BÀI VIẾT MỚI
+                .td-blog-gach
+                .td-blog-post-1
+                  .td-post-img
+                  .td-post-content
+                    %p.td-post-content-1 Lorem ipsum dolor sit amet
+                    %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                  .clear-fix
+                .td-blog-post-1
+                  .td-post-img
+                  .td-post-content
+                    %p.td-post-content-1 Lorem ipsum dolor sit amet
+                    %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                  .clear-fix
+                .td-blog-post-1
+                  .td-post-img
+                  .td-post-content
+                    %p.td-post-content-1 Lorem ipsum dolor sit amet
+                    %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                  .clear-fix
+              / Hết phần post
+              / Phần tag
+              .td-blog-tag
+                %span.td-catagories TAG CLOUD
+                .td-blog-gach
+                .td-tag-content
+                  %ul
+                    / Đây là 1 tag
+                    %a{:href => "#"}
+                      %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
+                    / Kết thúc tag
+                    .clear-fix
+                .clear-fix
+              / Hết phần tag
+              .clear-fix
+          / Hết phần side bar bên trên
+          / Phần nội dung blog
+          .td-blog-content.td-border
+            / Phần danh sách bài viết
+            %ul.td-blog-content-ul
+              -@posts.each do |post|
+                %li.td-blog-content-li
+                  .td-content-li-img
+                    =link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post)
+                  .td-content-li-content
+                    %span.td-content-span-1
+                      = link_to post.user.user_name, profile_path(post.user.user_name)
+                    %a{}
+                      %h3
+                        =post.caption
+                    %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    .td-gach
+                      .td-gach-on
+                    %span{:style => "cursor: pointer; color: #7F7F7F;"}
+                      %i.flaticon-like80
+                      12 LIKE
+                    %span{:style => "cursor: pointer; color: #7F7F7F; padding-right: 0px"}
+                      %i.flaticon-speech102
+                      11 COMMENT
+                  .clear-fix
+                .clear-fix
+            / Hết danh sách bài viết
+            .clear-fix
+            .pagination= will_paginate
+          / Hết phần nội dung blog
+          / Phần sidebar bên dưới
+          .td-blog-right-1
+            / Phần post
+            .td-blog-post
+              %span.td-catagories BÀI VIẾT MỚI
+              .td-blog-gach
+              .td-blog-post-1
+                .td-post-img
+                .td-post-content
+                  %p.td-post-content-1 Lorem ipsum dolor sit amet
+                  %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                .clear-fix
+              .td-blog-post-1
+                .td-post-img
+                .td-post-content
+                  %p.td-post-content-1 Lorem ipsum dolor sit amet
+                  %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                .clear-fix
+              .td-blog-post-1
+                .td-post-img
+                .td-post-content
+                  %p.td-post-content-1 Lorem ipsum dolor sit amet
+                  %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                .clear-fix
+            / Hết phần post
+            / Phần tag
+            .td-blog-tag
+              %span.td-catagories TAG CLOUD
+              .td-blog-gach
+              .td-tag-content
+                %ul
+                  / Đây là 1 tag
+                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
+                  / Kết thúc tag
+                  / Đây là 1 tag
+                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
+                  / Kết thúc tag
+                  / Đây là 1 tag
+                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
+                  / Kết thúc tag
+                  / Đây là 1 tag
+                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
+                  / Kết thúc tag
+                  / Đây là 1 tag
+                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
+                  / Kết thúc tag
+                  .clear-fix
+              .clear-fix
+            / Hết phần tag
+          / Hết phần sidebar bên dưới
+

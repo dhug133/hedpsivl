@@ -2,22 +2,21 @@
   .post
     .post-head
       .thumb-img
-      .user-name
-        = post.user.user_name
-      .time-ago
-        = time_ago_in_words post.created_at
     .image.center-block
       = link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post)
     .post-bottom
       = render 'posts/likes', post: post
       .caption
-        .caption-content
+        %span.caption-content
           .user-name
             = link_to post.user.user_name, profile_path(post.user.user_name)
-          = post.caption
-        .comments{id: "comments_#{post.id}"}
-          - if post.comments
-            = render post.comments, post: post
+        %span.time-ago
+          = time_ago_in_words post.created_at
+      .td-caption
+        = post.caption
+      .comments{id: "comments_#{post.id}"}
+        - if post.comments
+          = render post.comments, post: post
     .comment-like-form.row
       .like-button.col-sm-1
         =link_to '', like_post_path(post.id), remote: true,
