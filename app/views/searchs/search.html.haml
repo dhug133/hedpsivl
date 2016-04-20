@@ -49,6 +49,7 @@
           / Phần nội dung blog
           .td-blog-content.td-border
             / Phần danh sách bài viết
+            %h2.text-center Searching result
             %ul.td-blog-content-ul
               -@posts.each do |post|
                 %li.td-blog-content-li
@@ -81,7 +82,6 @@
                 .clear-fix
             / Hết danh sách bài viết
             .clear-fix
-            .pagination= will_paginate
           / Hết phần nội dung blog
           / Phần sidebar bên dưới
           .td-blog-right-1

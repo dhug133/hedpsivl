@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :owned_post, only: [:edit, :update, :destroy]
     def index
          @posts = Post.paginate(page: params[:page], per_page: 5)
@@ -51,7 +51,16 @@ class PostsController < ApplicationController
           format.js
         end
       end
-    end  
+    end
+    
+    def unlike
+      if @post.unliked_by current_user
+        respond_to do |format|
+          format.html { redirect_to :back }
+          format.js
+        end
+      end
+    end
     private
 
     def post_params  
