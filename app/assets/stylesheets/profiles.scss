@@ -1,3 +1,72 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-post-content {
+    width: 90%;
+    margin: 10px auto;
+    @media only screen and (max-width: 700px) {
+        .profile-post-image {
+            width: 50%;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        .profile-post-image {
+            width: 100%;
+        }
+    }
+    .profile-post-image {
+        padding: 10px;
+        float: left;
+        width: 33.33%;
+        border: 1 solid #ccc;
+        .post-wrapper {
+            background-color: transparent;
+            min-height: 0px;
+            .image-wrapper {
+                margin: 0;
+                padding: 0;
+                img {
+                    height: 300px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+            .post-info {
+                background-color: transparent;
+                height: 150px;
+                width: 100%;
+                float: right;
+                padding: 20px 0;
+                .avatar {
+                    display: none;
+                }
+                .caption {
+                    margin: 0;
+                    padding: 0;
+                    text-align: left;
+                    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+                }
+                .user-name {
+                    display: none;
+                }
+                .time-ago {
+                    font-size: 15px;
+                    font-style: oblique;
+                    color: #999;
+                }
+                .caption-content {
+                    font-size: 15px;
+                }
+                .like {
+                    display: none;
+                }
+                .comments {
+                    display: none;
+                }
+                .comment-like-form {
+                    display: none;
+                }
+            }
+        }
+    }
+}

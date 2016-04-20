@@ -1,0 +1,11 @@
+.pagination= will_paginate
+.posts-wrapper.container{:style =>"margin-top: 10%"}
+  -@posts.each do |post|
+    .post.col-md-4.hung_post
+      .post-head
+        .name
+          = post.user.user_name
+      .image.center-block
+        =link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post)
+      %p.caption
+        =post.caption
