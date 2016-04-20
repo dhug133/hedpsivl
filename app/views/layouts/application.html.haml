@@ -24,8 +24,6 @@
               = link_to "Sign in", new_user_session_path
             %li
               = link_to "Register", new_user_registration_path
-        
-          
         %form.navbar-form.navbar-right{:action => "/searchs/search", :method => "GET", :role => "search", :style => "background-color: #c1c1c1; margin: 8px 15px; padding: 0px; border-radius: 2px;"}
           .form-group
             %input.form-control{:name => "title", :placeholder => "Photos...", :type => "text", :style => "background-color: transparent; border: none; color: #222;"}
