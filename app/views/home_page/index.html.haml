@@ -1,6 +1,32 @@
+#navbar-display-1.navbar-inverse-1.navbar-inverse.navbar-home{:style => "background-color: rgba(21,21,23,0.95);top:0;display:none"}
+  .navbar-header{:style => "margin-left: 50px;"}
+    .navbar-brand= link_to "ColorWorld", root_path,{:style => "color:white"}
+  .navbar-collapse
+    %ul.nav.navbar-nav
+      %li
+        = link_to "Gallery", posts_path
+      %li
+        = link_to "Feed", posts_path
+    %ul.nav.navbar-nav.navbar-right{:style => "margin-right: 50px;"}
+      - if user_signed_in?
+        %li
+          = link_to "Upload", new_post_path
+        %li
+          = link_to "Log out", destroy_user_session_path, method: :delete
+      - else
+        %li
+          = link_to "Sign in", new_user_session_path
+        %li
+          = link_to "Register", new_user_registration_path
+    
+      
+    %form.navbar-form.navbar-right{:action => "{{url('/searchimage')}}", :method => "GET", :role => "search", :style => "background-color: #c1c1c1; margin: 8px 15px; padding: 0px; border-radius: 2px;"}
+      .form-group
+        %input.form-control{:name => "title", :placeholder => "Photos, people, or groups", :type => "text", :style => "background-color: transparent; border: none; color: #222;"}
+        %input.form-control{:name => "type", :type => "hidden", :value => "0"}
+        %span{:style => "float: left;"}
+          %button.btn.btn-default{:type => "submit", :style => " background: url(images/icon_search.png) no-repeat; border: 0px; width: 20px; height: 25px; padding: 0px; margin: 5px 8px;"}
 %title Color World
-//:javascript
-//  document.getElementById('navbar-display').style.display = 'none';
 .main
   .topstrip
     %header.mainheader
@@ -49,11 +75,11 @@
 :javascript
   $(window).scroll(function(){
     if($(window).scrollTop() > 740){
-        document.getElementById('navbar-display').style.display = 'block';
+        document.getElementById('navbar-display-1').style.display = 'block';
     }
   });
   $(window).scroll(function(){
     if($(window).scrollTop() < 740){
-        document.getElementById('navbar-display').style.display = 'none';
+        document.getElementById('navbar-display-1').style.display = 'none';
     }
   });
