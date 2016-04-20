@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   get 'profiles/show'
-
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :posts do
     resources :comments
+    member do
+      get 'like'
+    end
   end
   resources :home_page
   root 'home_page#index'  
