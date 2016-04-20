@@ -1,0 +1,27 @@
+:javascript
+  document.getElementById('navbar-display').style.display='block';
+.posts-wrapper
+  .row.profile-header
+    %section.bh_banner.container-fluid{:style => ""}
+      .row
+        .bh_bgr.text-center
+          %section.cd-intro
+            .wrapper.cd-intro-content.bouncy
+              .img.cd-btn
+                .img-circle
+                  = profile_avatar_select(@user)
+              %p
+                = @user.bio
+          %ul.bh_link-list
+            %li{}
+              - if @user == current_user
+                = link_to 'Edit Profile', edit_profile_path(@user.user_name),
+                                          class: 'btn edit-button-1'
+            %li{}
+              .user-statistics
+                %p.edit-button-1.btn.td-count
+                  = pluralize @user.posts.count, 'post'
+%ul.td-post-content-ul
+  -@posts.each do |post|
+    %li.td-post-content-li
+      = render 'posts/post', post: post

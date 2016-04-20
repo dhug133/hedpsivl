@@ -175,7 +175,10 @@
 	margin: 0 auto;
 }
 .center-block img{
-	margin-top: 81px;
+	margin-top: 30px;
+	width: 400px;
+	height: auto;
+	border-radius: 5px;
 }
 
 /* Hung test comment css*/
@@ -203,4 +206,11 @@
 }
 .caption{
 	text-align: center;
+	font-family: 'OpenSansLight';
+	font-size: 16px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.caption-content{
+	margin-right: 10px;
 }
