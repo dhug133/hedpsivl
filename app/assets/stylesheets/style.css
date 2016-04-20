@@ -924,6 +924,7 @@ section.bh_banner .bh_link-list li.active:after{
     width: 70%;
     margin: 0 auto;
     background-color: #FFFFFF;
+    padding-top: 50px;
 }
 body{
     background-color: #e9eaed;
@@ -943,7 +944,11 @@ body{
     position: fixed;
     width: 100%;
     z-index: 9999;
+    border-radius: 0  !important;
 }
 .navbar-brand a:hover{
     text-decoration: none;
+}
+.navbar-brand {
+    padding-top: 5px  !important;
 }

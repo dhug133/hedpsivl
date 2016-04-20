@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :owned_post, only: [:edit, :update, :destroy]
     def index
          @posts = Post.paginate(page: params[:page], per_page: 5)
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     end
   
     def edit  
+      @post = Post.find(params[:id])
     end
     
     def update
@@ -37,10 +38,29 @@ class PostsController < ApplicationController
       end
     end
     
-    def destroy
-      @post.destroy
+    def destroy  
+      @post = Post.find(params[:id])
+      byebug
+      @post.delete
       redirect_to posts_path
-    end 
+    end  
+    def like  
+      if @post.liked_by current_user
+        respond_to do |format|
+          format.html { redirect_to :back }
+          format.js
+        end
+      end
+    end
+    
+    def unlike
+      if @post.unliked_by current_user
+        respond_to do |format|
+          format.html { redirect_to :back }
+          format.js
+        end
+      end
+    end
     private
 
     def post_params  

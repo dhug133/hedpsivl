@@ -1,6 +1,6 @@
 #navbar-display-1.navbar-inverse-1.navbar-inverse.navbar-home{:style => "background-color: rgba(21,21,23,0.95);top:0;display:none"}
   .navbar-header{:style => "margin-left: 50px;"}
-    .navbar-brand= link_to "ColorWorld", root_path,{:style => "color:white"}
+    .navbar-brand= link_to (image_tag "cwl2.png", class:'img-responsive', style:'height:30px;'), root_path
   .navbar-collapse
     %ul.nav.navbar-nav
       %li
@@ -70,16 +70,18 @@
           20124846 - Nguyen Thanh Luan
           %br/
           20122067 - Truong Tien Manh
+          %br/
+          20121504 - Ta Tat Dat
     %div
       %p{:style => "margin: 0px;"}.
 :javascript
   $(window).scroll(function(){
-    if($(window).scrollTop() > 740){
+    if($(window).scrollTop() > 700){
         document.getElementById('navbar-display-1').style.display = 'block';
     }
   });
   $(window).scroll(function(){
-    if($(window).scrollTop() < 740){
+    if($(window).scrollTop() < 700){
         document.getElementById('navbar-display-1').style.display = 'none';
     }
   });
