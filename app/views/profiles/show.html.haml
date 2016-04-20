@@ -21,7 +21,7 @@
               .user-statistics
                 %p.edit-button-1.btn.td-count
                   = pluralize @user.posts.count, 'post'
-%ul.td-post-content-ul
+.profile-post-content
   -@posts.each do |post|
-    %li.td-post-content-li
+    .profile-post-image
       = render 'posts/post', post: post
