@@ -11,18 +11,28 @@
       .caption-content
         = post.caption
     .like
-      %span(class="glyphicon glyphicon-heart-empty")
+      - if user_signed_in?
+        .like-button.col-sm-1
+          - if current_user.liked?(post)
+            =link_to '', unlike_post_path(post.id), remote: true,
+                                                    id: "like_#{post.id}",
+                                                    class: "glyphicon #{liked_post post}"
+          - else
+            =link_to '', like_post_path(post.id), remote: true,
+                                                  id: "like_#{post.id}",
+                                                  class: "glyphicon #{liked_post post}"
       .like-count
-        200 Người thích ảnh này  
+        = render 'posts/likes', post: post  
     .comments{id: "comments_#{post.id}"}
       - if post.comments
         = render post.comments, post: post
-    .comment-like-form    
-      .avatar  
-      .comment-form
-        = form_for([post, post.comments.build], remote: true) do |f|
-          = f.text_area :content, placeholder: 'Add a comment...', class: "comment_content", id: "comment_content_#{post.id}"
-          %input{:type => "submit", :value => "Comment", :class => "btn btn-primary",}
+    .comment-like-form
+      - if user_signed_in?
+        .avatar  
+        .comment-form
+          = form_for([post, post.comments.build], remote: true) do |f|
+            = f.text_area :content, placeholder: 'Add a comment...', class: "comment_content", id: "comment_content_#{post.id}"
+            %input{:type => "submit", :value => "Comment", :class => "btn btn-primary",}
   .image-wrapper
     .image
       = link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post)

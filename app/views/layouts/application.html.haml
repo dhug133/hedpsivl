@@ -22,6 +22,8 @@
         %ul.nav.navbar-nav.navbar-right{:style => "margin-right: 50px;"}
           - if user_signed_in?
             %li
+              = render 'notifications/notification_dropdown'
+            %li
               = link_to "Upload", new_post_path
             %li
               = link_to "Log out", destroy_user_session_path, method: :delete
@@ -30,9 +32,7 @@
               = link_to "Sign in", new_user_session_path
             %li
               = link_to "Register", new_user_registration_path
-        
-          
-        %form.navbar-form.navbar-right{:action => "{{url('/searchimage')}}", :method => "GET", :role => "search", :style => "max-height: 32px; background-color: #c1c1c1; margin: 8px 15px; padding: 0px; border-radius: 2px;"}
+        %form.navbar-form.navbar-right{:action => "/searchs/search", :method => "GET", :role => "search", :style => "background-color: #c1c1c1; margin: 8px 15px; padding: 0px; border-radius: 2px;"}
           .form-group
             %input.form-control{:name => "title", :placeholder => "Photos, people or groups", :type => "text", :style => "background-color: transparent; border: none; color: #222;"}
             %span{:style => "float: left;"}

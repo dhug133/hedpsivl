@@ -14,21 +14,30 @@
                 .td-blog-gach
                 .td-blog-post-1
                   .td-post-img
+                    =link_to (image_tag @newposts[0].image.url(:medium), class:'img-responsive'), post_path(@newposts[0])
                   .td-post-content
-                    %p.td-post-content-1 Lorem ipsum dolor sit amet
-                    %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                    %p.td-post-content-1 
+                      =@newposts[0].caption
+                    %p.td-post-content-2 
+                      =@newposts[0].user.user_name + ' - ' + @newposts[0].created_at.to_s
                   .clear-fix
                 .td-blog-post-1
                   .td-post-img
+                    =link_to (image_tag @newposts[1].image.url(:medium), class:'img-responsive'), post_path(@newposts[1])
                   .td-post-content
-                    %p.td-post-content-1 Lorem ipsum dolor sit amet
-                    %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                    %p.td-post-content-1 
+                      = @newposts[1].caption
+                    %p.td-post-content-2 
+                      =@newposts[1].user.user_name + ' - ' + @newposts[1].created_at.to_s
                   .clear-fix
                 .td-blog-post-1
                   .td-post-img
+                    =link_to (image_tag @newposts[2].image.url(:medium), class:'img-responsive'), post_path(@newposts[2])
                   .td-post-content
-                    %p.td-post-content-1 Lorem ipsum dolor sit amet
-                    %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
+                    %p.td-post-content-1 
+                      = @newposts[2].caption
+                    %p.td-post-content-2
+                      = @newposts[2].user.user_name + ' - ' + @newposts[2].created_at.to_s
                   .clear-fix
               / Hết phần post
               / Phần tag
@@ -65,15 +74,16 @@
                       .td-gach-on
                     %span{:style => "cursor: pointer; color: #7F7F7F;"}
                       %i.flaticon-like80
-                      .like-button.col-sm-1
-                        - if current_user.liked?(post)
-                          =link_to '', unlike_post_path(post.id), remote: true,
+                      - if user_signed_in?
+                        .like-button.col-sm-1
+                          - if current_user.liked?(post)
+                            =link_to '', unlike_post_path(post.id), remote: true,
+                                                                    id: "like_#{post.id}",
+                                                                    class: "glyphicon #{liked_post post}"
+                          - else
+                            =link_to '', like_post_path(post.id), remote: true,
                                                                   id: "like_#{post.id}",
                                                                   class: "glyphicon #{liked_post post}"
-                        - else
-                          =link_to '', like_post_path(post.id), remote: true,
-                                                                id: "like_#{post.id}",
-                                                                class: "glyphicon #{liked_post post}"
                     %span{:style => "cursor: pointer; color: #7F7F7F; padding-right: 0px"}
                       %i.flaticon-speech102
                       11 COMMENT
@@ -83,54 +93,4 @@
             .clear-fix
             .pagination= will_paginate
           / Hết phần nội dung blog
-          / Phần sidebar bên dưới
-          .td-blog-right-1
-            / Phần post
-            .td-blog-post
-              %span.td-catagories BÀI VIẾT MỚI
-              .td-blog-gach
-              .td-blog-post-1
-                .td-post-img
-                .td-post-content
-                  %p.td-post-content-1 Lorem ipsum dolor sit amet
-                  %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
-                .clear-fix
-              .td-blog-post-1
-                .td-post-img
-                .td-post-content
-                  %p.td-post-content-1 Lorem ipsum dolor sit amet
-                  %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
-                .clear-fix
-              .td-blog-post-1
-                .td-post-img
-                .td-post-content
-                  %p.td-post-content-1 Lorem ipsum dolor sit amet
-                  %p.td-post-content-2 Nguyễn Ngọc Ngoan  -  02 Tháng 08
-                .clear-fix
-            / Hết phần post
-            / Phần tag
-            .td-blog-tag
-              %span.td-catagories TAG CLOUD
-              .td-blog-gach
-              .td-tag-content
-                %ul
-                  / Đây là 1 tag
-                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
-                  / Kết thúc tag
-                  / Đây là 1 tag
-                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
-                  / Kết thúc tag
-                  / Đây là 1 tag
-                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
-                  / Kết thúc tag
-                  / Đây là 1 tag
-                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
-                  / Kết thúc tag
-                  / Đây là 1 tag
-                  %button.td-tag-label.hvr-sweep-to-right Toán lớp 1
-                  / Kết thúc tag
-                  .clear-fix
-              .clear-fix
-            / Hết phần tag
-          / Hết phần sidebar bên dưới
-
+          
