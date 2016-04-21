@@ -52,8 +52,13 @@ body {
   max-width: 640px;
   margin: 0 auto;
 }
-
-
+.notification-dropdown {
+  margin-top: 10px;
+ 
+}
+.notification-dropdown button {
+    border: none;
+  }
 /* ## POST CUSTOMISATIONS ## */
 
 /*.posts-wrapper {*/
