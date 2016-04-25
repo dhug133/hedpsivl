@@ -69,7 +69,8 @@
                     %a{}
                       %h3
                         =post.caption
-                    %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    %p
+                      =raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
                     .td-gach
                       .td-gach-on
                     %span{:style => "cursor: pointer; color: #7F7F7F;"}
