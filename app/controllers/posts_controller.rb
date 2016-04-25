@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :owned_post, only: [:edit, :update, :destroy]
     def index
-         @posts = Post.paginate(page: params[:page], per_page: 5)
-         @newposts = Post.all.order(created_at: :desc).limit(3)
+      @posts = Post.paginate(page: params[:page], per_page: 5)
+      @newposts = Post.all.order(created_at: :desc).limit(3)
     end
     
     def show
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       end
     end
   
-    def edit  
+    def edit
       @post = Post.find(params[:id])
     end
     
@@ -62,10 +62,14 @@ class PostsController < ApplicationController
         end
       end
     end
+    
+    def tag
+      @posts = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 5)
+    end
     private
 
     def post_params  
-      params.require(:post).permit(:image, :caption)
+      params.require(:post).permit(:image, :caption, :tag_list)
     end
     
     def set_post
