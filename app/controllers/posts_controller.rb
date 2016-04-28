@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     def destroy  
       @post = Post.find(params[:id])
       byebug
-      @post.delete
+      @post.destroy
       redirect_to posts_path
     end  
     def like  

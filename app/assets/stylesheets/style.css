@@ -921,8 +921,6 @@ section.bh_banner .bh_link-list li.active:after{
     background-color: #FFFFFF;
 }
 .td-post-detail{
-    width: 70%;
-    margin: 0 auto;
     background-color: #FFFFFF;
     padding-top: 50px;
 }
@@ -951,4 +949,14 @@ body{
 }
 .navbar-brand {
     padding-top: 5px  !important;
+}
+.edit-links a{
+    color: #000000;
+}
+.edit-links a:hover{
+    color: yellow  !important;
+    text-decoration: none;
+}
+.bh_banner{
+    margin-top: 50px;
 }

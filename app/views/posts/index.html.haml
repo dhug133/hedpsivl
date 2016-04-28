@@ -1,5 +1,6 @@
 :javascript
   document.getElementById('navbar-display').style.display = 'block';
+%title Feed
 .container-fluid{}
   .row
     %section.td-2-content
@@ -73,8 +74,7 @@
                       =raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
                     .td-gach
                       .td-gach-on
-                    %span{:style => "cursor: pointer; color: #7F7F7F;"}
-                      %i.flaticon-like80
+                    .like
                       - if user_signed_in?
                         .like-button.col-sm-1
                           - if current_user.liked?(post)
@@ -85,6 +85,8 @@
                             =link_to '', like_post_path(post.id), remote: true,
                                                                   id: "like_#{post.id}",
                                                                   class: "glyphicon #{liked_post post}"
+                      .like-count
+                        = render 'posts/likes', post: post  
                     %span{:style => "cursor: pointer; color: #7F7F7F; padding-right: 0px"}
                       %i.flaticon-speech102
                       11 COMMENT
