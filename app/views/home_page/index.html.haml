@@ -10,6 +10,8 @@
     %ul.nav.navbar-nav.navbar-right{:style => "margin-right: 50px;"}
       - if user_signed_in?
         %li
+          = render 'notifications/notification_dropdown'
+        %li
           = link_to "Upload", new_post_path
         %li
           = link_to "Log out", destroy_user_session_path, method: :delete
@@ -39,7 +41,7 @@
               %p Gallery
               %p the beautiful world
           %li
-            %a{:href => "#"}
+            %a{:href => "https://rails-image-sharing-night0nly.c9users.io/posts"}
               %p Feed
               %p your life .
           .clearfix
@@ -76,12 +78,12 @@
       %p{:style => "margin: 0px;"}.
 :javascript
   $(window).scroll(function(){
-    if($(window).scrollTop() > 700){
+    if($(window).scrollTop() > 680){
         document.getElementById('navbar-display-1').style.display = 'block';
     }
   });
   $(window).scroll(function(){
-    if($(window).scrollTop() < 700){
+    if($(window).scrollTop() < 680){
         document.getElementById('navbar-display-1').style.display = 'none';
     }
   });
